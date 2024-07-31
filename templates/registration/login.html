@@ -1,13 +1,29 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
-{% block title %}Login{% endblock %}
+{% block title %}Login{% endblock %} 
 
 {% block content %}
 
 <h2>Log In</h2>
 <form method="post">
-  {% csrf_token %}
-  {{ form }}
+  {% csrf_token %} 
+  {% comment %} 
+  {{ form }} 
+   das hier ist das Standardform, dass man verwenden kann. 
+  Möchte man ein eigenes Layout haben muss man im Grunde nur das name Attribut für Benutzer und Passwort richtig setzen.
+  Ich muss noch herausfinden, wie ich an den Rückgabewert komme, sollte das Passwort oder der Benutzername falsch sein.
+  {% endcomment %}
+
+  <div class="inputArea">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" name="username" id="id_username" />
+      <label class="mdl-textfield__label" for="id_username">Login</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" name="password" id="current-password" />
+      <label class="mdl-textfield__label" for="current-password">Passwort</label>
+    </div>
+  </div>
   <button type="submit">Log In</button>
 </form>
 {% endblock %}
